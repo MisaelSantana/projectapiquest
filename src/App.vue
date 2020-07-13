@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
+    <v-navigation-drawer class="navdrawer"
       v-model="drawer"
       app
       clipped
@@ -11,7 +11,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
+            <v-list-item-title>About</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -26,25 +26,18 @@
         
         <v-list-item link>
           <v-list-item-action>
-            <v-icon>mdi-cog</v-icon>
+            <v-icon>mdi-account</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
+            <v-list-item-title>People</v-list-item-title>
           </v-list-item-content>
           
         </v-list-item><v-list-item link>
           <v-list-item-action>
-            <v-icon>mdi-cog</v-icon>
+            <v-icon>mdi-rocket-launch</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item><v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-cog</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
+            <v-list-item-title>Aircrafts</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -53,15 +46,15 @@
     <v-app-bar
       app
       clipped-left
-      src="https://s1.thcdn.com/widgets/96-en/09/1920x586-jb-z-starwars-page-header-022609.jpg"
+      src="" class="barbackground"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Star Wars API - quest</v-toolbar-title>
+      <v-toolbar-title>Star Wars API - Quest</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
       <v-container
-        class="fill-height"
+        class="fill-height background"
         fluid
       >
         <v-row
@@ -110,5 +103,16 @@
 
 
 <style>
-
+.barbackground {
+  background-image: url(https://i.pinimg.com/originals/60/c2/17/60c2177448cbf90408ed1df7da78cf00.jpg);
+  background-size: cover;
+}
+.background {
+  background-image: url(https://i.pinimg.com/originals/a8/66/97/a866972eff1943ec3d8d96c52110d5bc.jpg);
+  background-size: cover;
+}
+.navdrawer {
+  background-image: url(https://i.pinimg.com/originals/94/bc/90/94bc9097cc143f3b83e3c7439527e0d8.jpg);
+  background-size: cover;
+}
 </style>
