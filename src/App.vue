@@ -57,47 +57,71 @@
         class="fill-height background"
         fluid
       >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col class="shrink">
-            <v-tooltip right>
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  :href="source"
-                  icon
-                  large
-                  target="_blank"
-                  v-on="on"
-                >
-                  <v-icon large>mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>Source</span>
-            </v-tooltip>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
 
-    <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }} Projeto quest API Star Wars - Misael Santana</span>
-    </v-footer>
+
+    <v-data-table
+        :headers="headers"
+        :items="movies"
+        class="elevation-1 table"
+    ><template v-slot:movies.actions="{ item }">
+          <v-icon
+            small
+            class="mr-2"
+            @click="editItem(item.epsodeId)"
+          >
+            mdi-pencil
+          </v-icon>
+      </template>
+    </v-data-table>
+
+    
+
+        </v-container>
+      </v-main>
+
+
+      <v-footer app>
+        <span>&copy; {{ new Date().getFullYear() }} Projeto Quest API Star Wars - Misael Santana</span>
+      </v-footer>
   </v-app>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import axios from 'axios';
+  import VueAxios from 'vue-axios'
+  Vue.use(VueAxios, axios)
   export default {
     props: {
       source: String,
     },
     data: () => ({
       drawer: null,
+      title:(''),
+      headers: [{ text: 'Titulo', value: 'title' },
+        { text: 'Epsódio', value: 'episode_id' },
+        { text: 'Diretor', value: 'director' },
+        { text: 'Produtor', value: 'producer' },
+        { text: 'Data de lançamento', value: 'release_date' },
+        { text: 'Ações', value: 'actions', sortable: false }],
+      movies: [],
     }),
     created () {
       this.$vuetify.theme.dark = true
+      this.getMovies ()
     },
+    methods: {
+      getMovies() {
+        axios.get('https://swapi.dev/api/films/')
+        .then(response => {
+            console.log(response.data);
+            this.movies = response.data.results;
+        })
+        .catch(error => {
+            console.log(error.response.data)
+        });
+      },
+    }
   }
 </script>
 
@@ -114,5 +138,14 @@
 .navdrawer {
   background-image: url(https://i.pinimg.com/originals/94/bc/90/94bc9097cc143f3b83e3c7439527e0d8.jpg);
   background-size: cover;
+}
+:root {
+  --color-bg-main: black;
+}
+.color {
+  color: var(--color-bg-main);
+}
+.table {
+  margin: 0 auto;
 }
 </style>
