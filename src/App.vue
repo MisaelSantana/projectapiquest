@@ -1,4 +1,7 @@
 <template>
+
+  <!-- navdrawer -->
+
   <v-app id="inspire">
     <v-navigation-drawer class="navdrawer"
       v-model="drawer"
@@ -43,6 +46,8 @@
       </v-list>
     </v-navigation-drawer>
 
+    <!-- navbar -->
+
     <v-app-bar
       app
       clipped-left
@@ -52,33 +57,29 @@
       <v-toolbar-title>Star Wars API - Quest</v-toolbar-title>
     </v-app-bar>
 
+  <!-- body page -->
+
     <v-main>
       <v-container
         class="fill-height background"
         fluid
       >
-
-
     <v-data-table
         :headers="headers"
         :items="movies"
         class="elevation-1 table"
-    ><template v-slot:movies.actions="{ item }">
+    ><template v-slot:item.actions="{ item }">
           <v-icon
             small
             class="mr-2"
-            @click="editItem(item.epsodeId)"
+            @click="viewMovie(item)"
           >
             mdi-pencil
           </v-icon>
       </template>
     </v-data-table>
-
-    
-
-        </v-container>
-      </v-main>
-
+    </v-container>
+    </v-main>
 
       <v-footer app>
         <span>&copy; {{ new Date().getFullYear() }} Projeto Quest API Star Wars - Misael Santana</span>
@@ -104,7 +105,7 @@
         { text: 'Produtor', value: 'producer' },
         { text: 'Data de lançamento', value: 'release_date' },
         { text: 'Ações', value: 'actions', sortable: false }],
-      movies: [],
+      movies: []
     }),
     created () {
       this.$vuetify.theme.dark = true
@@ -114,13 +115,16 @@
       getMovies() {
         axios.get('https://swapi.dev/api/films/')
         .then(response => {
-            console.log(response.data);
-            this.movies = response.data.results;
+          console.log(response.data);
+          this.movies = response.data.results;
         })
         .catch(error => {
-            console.log(error.response.data)
+          console.log(error.response.data)
         });
       },
+      viewMovie (movie) {
+        this.$router.push('/film/'+movie.episode_id)
+      }
     }
   }
 </script>
@@ -130,6 +134,7 @@
 .barbackground {
   background-image: url(https://i.pinimg.com/originals/60/c2/17/60c2177448cbf90408ed1df7da78cf00.jpg);
   background-size: cover;
+  background-position: center;
 }
 .background {
   background-image: url(https://i.pinimg.com/originals/a8/66/97/a866972eff1943ec3d8d96c52110d5bc.jpg);
@@ -138,6 +143,7 @@
 .navdrawer {
   background-image: url(https://i.pinimg.com/originals/94/bc/90/94bc9097cc143f3b83e3c7439527e0d8.jpg);
   background-size: cover;
+  background-position: center;
 }
 :root {
   --color-bg-main: black;
