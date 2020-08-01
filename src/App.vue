@@ -34,8 +34,18 @@
           <v-list-item-content>
             <v-list-item-title>People</v-list-item-title>
           </v-list-item-content>
-          
-        </v-list-item><v-list-item link>
+        </v-list-item>
+
+        <v-list-item to="/films/">
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Films</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        
+        <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-rocket-launch</v-icon>
           </v-list-item-action>
@@ -64,20 +74,7 @@
         class="fill-height background"
         fluid
       >
-    <v-data-table
-        :headers="headers"
-        :items="movies"
-        class="elevation-1 table"
-    ><template v-slot:item.actions="{ item }">
-          <v-icon
-            small
-            class="mr-2"
-            @click="viewMovie(item)"
-          >
-            mdi-pencil
-          </v-icon>
-      </template>
-    </v-data-table>
+      <router-view></router-view>
     </v-container>
     </v-main>
 
