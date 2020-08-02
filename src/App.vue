@@ -9,48 +9,57 @@
       clipped
     >
       <v-list dense>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>About</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-cog</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>People</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
         <v-list-item to="/films/">
           <v-list-item-action>
+            <v-icon>mdi-film</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Filmes</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
             <v-icon>mdi-account</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Films</v-list-item-title>
+            <v-list-item-title>Personagens</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        
+
         <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-rocket-launch</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Aircrafts</v-list-item-title>
+            <v-list-item-title>Naves</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-google-assistant</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Planetas</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-google-downasaur</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Espécies</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-car</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Veículos</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>

@@ -9,7 +9,7 @@
         class="mr-2"
         @click="viewMovie(item)"
         >
-        mdi-pencil
+        mdi-information
         </v-icon>
     </template>
 </v-data-table>
