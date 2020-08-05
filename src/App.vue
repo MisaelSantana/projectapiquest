@@ -18,7 +18,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item to="/people">
           <v-list-item-action>
             <v-icon>mdi-account</v-icon>
           </v-list-item-action>
@@ -131,6 +131,9 @@
       viewMovie (movie) {
         this.$router.push('/film/'+movie.episode_id)
       }
+      // viewPeople (person) {
+      //   this.$router.push('/person/'+person)
+      // }
     }
   }
 </script>
