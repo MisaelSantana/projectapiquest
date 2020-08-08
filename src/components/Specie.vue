@@ -13,6 +13,7 @@
     <router-view></router-view>
   </v-container>
 </template>
+
 <script>
   import Vue from 'vue'
   import axios from 'axios';
@@ -22,23 +23,23 @@
     data: () => ({
     }),
     created () {
-      this.getPlanets ()
+      this.getSpecie ()
     },
     methods: {
-      getPlanets () {
-        axios.get('https://swapi.dev/api/planets/')
+      getSpecie () {
+        this.select = null
+        axios.get('https://swapi.dev/api/species/'+this.$route.params.id)
         .then(response => {
-          console.log (response.data)
-          this. peoples = response. data.results;
+          console.log (response.data);
+          this. peoples = response. data;
         })
-        .catch(error => [
-          console.log(error.reponse.data)
-        ])
+        .catch(error => {
+          console.log(error.response.data)
+        })
       }
     }
   }
 </script>
-
 <style>
 .backgroundimg {
   background-image: url(https://images7.alphacoders.com/901/901328.jpg);

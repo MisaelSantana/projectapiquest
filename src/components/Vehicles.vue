@@ -22,11 +22,11 @@
     data: () => ({
     }),
     created () {
-      this.getPlanets ()
+      this.getVehicles ()
     },
     methods: {
-      getPlanets () {
-        axios.get('https://swapi.dev/api/planets/')
+      getVehicles () {
+        axios.get('https://swapi.dev/api/vehicles/')
         .then(response => {
           console.log (response.data)
           this. peoples = response. data.results;

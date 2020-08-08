@@ -3,14 +3,14 @@
       <v-row>
         <v-col cols="12" sm="12" md="6" class= 'container'>
           <v-card>
-          <v-card-title>{{movies.title}}</v-card-title>
-            <v-card-text  style="height: 300px;" class="grey lighten-5, lettercolor">{{movies.opening_crawl}}</v-card-text>
-            <v-card-text style="height: 100px; position: relative">{{movies.vehicles}}
+          <v-card-title class="backgroundimg">{{movies.title}}</v-card-title>
+            <v-card-text style="height: 300px;" class="lighten-5">{{movies.opening_crawl}}</v-card-text>
+            <v-card-text class="backgroundimg" style="height: 100px; position: relative">{{movies.vehicles}}
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
-      <router-view></router-view>
+    <router-view></router-view>
   </v-container>
 </template>
 
@@ -24,11 +24,12 @@
       source: String,
     },
 		data: () => ({
-      movies: []
+      movies: [],
+      vehicles: []
     }),
 
     created () {
-      this.getMovie()
+      this.getMovie ()
       console.log ('filmId')
     },
 
@@ -52,7 +53,9 @@
 </script>
 
 <style>
-.lettercolor {
-  color: ;
+.backgroundimg {
+  background-image: url(https://images7.alphacoders.com/901/901328.jpg);
+  background-size: cover;
+  background-position: center;
 }
 </style>

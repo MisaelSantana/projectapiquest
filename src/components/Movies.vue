@@ -2,7 +2,7 @@
 <v-data-table
     :headers="headers"
     :items="movies"
-    class="elevation-1 table"
+    class="elevation-1 table, center"
 ><template v-slot:item.actions="{ item }">
         <v-icon
         small

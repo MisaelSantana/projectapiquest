@@ -22,7 +22,7 @@
             <v-list-item-title>Personagens</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item to="/aircrafts">
           <v-list-item-action>
             <v-icon>mdi-rocket-launch</v-icon>
           </v-list-item-action>
@@ -30,7 +30,7 @@
             <v-list-item-title>Naves</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item to="/planets">
           <v-list-item-action>
             <v-icon>mdi-google-assistant</v-icon>
           </v-list-item-action>
@@ -38,7 +38,7 @@
             <v-list-item-title>Planetas</v-list-item-title>
           </v-list-item-content>
         </v-list-item>   
-        <v-list-item link>
+        <v-list-item to="/species">
           <v-list-item-action>
             <v-icon>mdi-google-downasaur</v-icon>
           </v-list-item-action>
@@ -46,7 +46,7 @@
             <v-list-item-title>Espécies</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item to="/vehicles">
           <v-list-item-action>
             <v-icon>mdi-car</v-icon>
           </v-list-item-action>
@@ -128,6 +128,9 @@
 
 
 <style>
+.center {
+  margin: 0 auto;
+}
 .barbackground {
   background-image: url(https://i.pinimg.com/originals/60/c2/17/60c2177448cbf90408ed1df7da78cf00.jpg);
   background-size: cover;
