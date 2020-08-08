@@ -12,6 +12,7 @@
         </v-card>
       </v-col>
     </v-row>
+    <router-view></router-view>
   </v-container>
 </template>
 
@@ -43,9 +44,7 @@
 </script>
 
 <style>
-
 .container {
   margin: 0 auto;
 }
-
 </style>

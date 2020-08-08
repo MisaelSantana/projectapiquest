@@ -1,7 +1,4 @@
 <template>
-
-  <!-- navdrawer -->
-
   <v-app id="inspire">
     <v-navigation-drawer class="navdrawer"
       v-model="drawer"
@@ -17,7 +14,6 @@
             <v-list-item-title>Filmes</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
         <v-list-item to="/people">
           <v-list-item-action>
             <v-icon>mdi-account</v-icon>
@@ -26,7 +22,6 @@
             <v-list-item-title>Personagens</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
         <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-rocket-launch</v-icon>
@@ -35,7 +30,6 @@
             <v-list-item-title>Naves</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        
         <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-google-assistant</v-icon>
@@ -43,8 +37,7 @@
           <v-list-item-content>
             <v-list-item-title>Planetas</v-list-item-title>
           </v-list-item-content>
-        </v-list-item>
-        
+        </v-list-item>   
         <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-google-downasaur</v-icon>
@@ -53,7 +46,6 @@
             <v-list-item-title>Espécies</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
         <v-list-item link>
           <v-list-item-action>
             <v-icon>mdi-car</v-icon>
@@ -65,8 +57,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- navbar -->
-
     <v-app-bar
       app
       clipped-left
@@ -76,15 +66,13 @@
       <v-toolbar-title>Star Wars API - Quest</v-toolbar-title>
     </v-app-bar>
 
-  <!-- body page -->
-
     <v-main>
       <v-container
         class="fill-height background"
         fluid
       >
       <router-view></router-view>
-    </v-container>
+      </v-container>
     </v-main>
 
       <v-footer app>
@@ -130,10 +118,10 @@
       },
       viewMovie (movie) {
         this.$router.push('/film/'+movie.episode_id)
-      }
-      // viewPeople (person) {
-      //   this.$router.push('/person/'+person)
-      // }
+      },
+      viewFilms () {
+         this.$router.push('/films')
+      },
     }
   }
 </script>
@@ -153,14 +141,5 @@
   background-image: url(https://i.pinimg.com/originals/94/bc/90/94bc9097cc143f3b83e3c7439527e0d8.jpg);
   background-size: cover;
   background-position: center;
-}
-:root {
-  --color-bg-main: black;
-}
-.color {
-  color: var(--color-bg-main);
-}
-.table {
-  margin: 0 auto;
 }
 </style>
