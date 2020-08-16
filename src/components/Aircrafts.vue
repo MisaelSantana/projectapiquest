@@ -1,25 +1,44 @@
 <template>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12" sm="12" md="6" class= 'container'>
-          <v-card>
-          <v-card-title class="backgroundimg"></v-card-title>
-            <v-card-text style="height: 300px;" class="lighten-5"></v-card-text>
-            <v-card-text class="backgroundimg" style="height: 100px; position: relative">
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    <router-view></router-view>
-  </v-container>
+<v-data-table
+    :headers="headers"
+    :items="aircrafts"
+    class="elevation-1 table, center"
+><template v-slot:item.actions="{ item }">
+        <v-icon
+        small
+        class="mr-2"
+        @click="(item)"
+        >
+        mdi-information
+        </v-icon>
+    </template>
+</v-data-table>
 </template>
+
 <script>
   import Vue from 'vue'
   import axios from 'axios';
   import VueAxios from 'vue-axios'
   Vue.use(VueAxios, axios)
   export default {
+    props: {
+      source: String,
+    },
     data: () => ({
+      headers: [{text: 'Name', value: 'name'},
+        {text: 'Model', value: 'model' },
+        {text: 'Starship class', value: 'starship_class' },
+        {text: 'Manufacturer', value: 'manufacturer' },
+        {text: 'Value', value: 'cost_in_credits' },
+        {text: 'Lenght', value: 'length' },
+        {text: 'Crew', value: 'crew' },
+        {text: 'Pasaengers', value: 'passengers' },
+        {text: 'Max atmosphering speed', value: 'max_atmosphering_speed' },
+        {text: 'Hyperdrive rating', value: 'hyperdrive_rating' },
+        {text: 'MGLT', value: 'MGLT' },
+        {text: 'Ações', value: 'actions', sortable: false}],
+      movies: [],
+      aircrafts: []
     }),
     created () {
       this.getAircrafts ()
@@ -29,7 +48,7 @@
         axios.get('https://swapi.dev/api/starships/')
         .then(response => {
           console.log (response.data)
-          this. peoples = response. data.results;
+          this. aircrafts = response. data.results;
         })
         .catch(error => [
           console.log(error.reponse.data)
@@ -38,11 +57,3 @@
     }
   }
 </script>
-
-<style>
-.backgroundimg {
-  background-image: url(https://images7.alphacoders.com/901/901328.jpg);
-  background-size: cover;
-  background-position: center;
-}
-</style>

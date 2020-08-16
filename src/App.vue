@@ -99,7 +99,7 @@
         { text: 'Produtor', value: 'producer' },
         { text: 'Data de lançamento', value: 'release_date' },
         { text: 'Ações', value: 'actions', sortable: false }],
-      movies: []
+      movies: [],
     }),
     created () {
       this.$vuetify.theme.dark = true

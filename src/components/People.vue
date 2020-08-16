@@ -1,48 +1,56 @@
 <template>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12" sm="12" md="6" class= 'container'>
-          <v-card>
-          <v-card-title class="backgroundimg"></v-card-title>
-            <v-card-text style="height: 300px;" class="lighten-5"></v-card-text>
-            <v-card-text class="backgroundimg" style="height: 100px; position: relative">
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
+<v-data-table
+    :headers="headers"
+    :items="people"
+    class="elevation-1 table, center"
+><template v-slot:item.actions="{ item }">
+        <v-icon
+        small
+        class="mr-2"
+        @click="(item)"
+        >
+        mdi-information
+        </v-icon>
+    </template>
     <router-view></router-view>
-  </v-container>
+</v-data-table>
 </template>
+
 <script>
   import Vue from 'vue'
   import axios from 'axios';
   import VueAxios from 'vue-axios'
   Vue.use(VueAxios, axios)
   export default {
+    props: {
+      source: String,
+    },
     data: () => ({
+      headers: [{text: 'Name', value: 'name' },
+        {text: 'Height', value: 'height' },
+        {text: 'Mass', value: 'mass' },
+        {text: 'Hair color', value: 'hair_color' },
+        {text: 'Skin color', value: 'skin_color' },
+        {text: 'Eyes color', value: 'eye_color' },
+        {text: 'Gender', value: 'gender' },
+        {text: 'Information', value: 'actions', sortable: false}],
+      movies: [],
+      people: []
     }),
     created () {
       this.getPeople ()
     },
     methods: {
       getPeople () {
-        axios.get('http https://swapi.dev/api/people/')
+        axios.get('https://swapi.dev/api/people/')
         .then(response => {
           console.log (response.data)
-          this. peoples = response. data.results;
+          this. people = response. data.results;
         })
         .catch(error => [
           console.log(error.reponse.data)
-        ])
-      }
+        ]);
+      },
     }
   }
 </script>
-
-<style>
-.backgroundimg {
-  background-image: url(https://images7.alphacoders.com/901/901328.jpg);
-  background-size: cover;
-  background-position: center;
-}
-</style>

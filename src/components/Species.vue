@@ -1,25 +1,43 @@
 <template>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12" sm="12" md="6" class= 'container'>
-          <v-card>
-          <v-card-title class="backgroundimg"></v-card-title>
-            <v-card-text style="height: 300px;" class="lighten-5"></v-card-text>
-            <v-card-text class="backgroundimg" style="height: 100px; position: relative">
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    <router-view></router-view>
-  </v-container>
+<v-data-table
+    :headers="headers"
+    :items="species"
+    class="elevation-1 table, center"
+><template v-slot:item.actions="{ item }">
+        <v-icon
+        small
+        class="mr-2"
+        @click="(item)"
+        >
+        mdi-information
+        </v-icon>
+    </template>
+</v-data-table>
 </template>
+
 <script>
   import Vue from 'vue'
   import axios from 'axios';
   import VueAxios from 'vue-axios'
   Vue.use(VueAxios, axios)
   export default {
+    props: {
+      source: String,
+    },
     data: () => ({
+      headers: [{text: 'Name', value: 'name' },
+        {text: 'Classification', value: 'classification' },
+        {text: 'Designation', value: 'designation' },
+        {text: 'Average height', value: 'average_height' },
+        {text: 'Average lifespan', value: 'average_lifespan' },
+        {text: 'Eye colors', value: 'eye_colors' },
+        {text: 'Hair colors', value: 'hair_colors' },
+        {text: 'Skin colors', value: 'skin_colors' },
+        {text: 'Language', value: 'language' },
+        {text: 'Homeworld', value: 'homeworld' },
+        {text: 'Ações', value: 'actions', sortable: false}],
+      movies: [],
+      species: []
     }),
     created () {
       this.getSpecies ()
@@ -29,7 +47,7 @@
         axios.get('https://swapi.dev/api/species/')
         .then(response => {
           console.log (response.data)
-          this. peoples = response. data.results;
+          this. species = response. data.results;
         })
         .catch(error => [
           console.log(error.reponse.data)
@@ -39,10 +57,3 @@
   }
 </script>
 
-<style>
-.backgroundimg {
-  background-image: url(https://images7.alphacoders.com/901/901328.jpg);
-  background-size: cover;
-  background-position: center;
-}
-</style>
