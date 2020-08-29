@@ -7,7 +7,7 @@
         <v-icon
         small
         class="mr-2"
-        @click="(item)"
+        @click="viewSpecie(item)"
         >
         mdi-information
         </v-icon>
@@ -52,6 +52,9 @@
         .catch(error => [
           console.log(error.reponse.data)
         ])
+      },
+      viewSpecie (specie){
+        this.$router.push('/specie/'+specie.id)
       }
     }
   }

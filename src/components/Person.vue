@@ -28,10 +28,10 @@
     methods: {
       getPerson () {
         this.select = null
-        axios.get('http https://swapi.dev/api/people/'+this.$route.params.id)
+        axios.get('https://swapi.dev/api/people/'+this.$route.params.id)
         .then(response => {
           console.log (response.data);
-          this. peoples = response. data;
+          this. person = response. data;
         })
         .catch(error => {
           console.log(error.response.data)

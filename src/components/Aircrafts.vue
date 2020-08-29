@@ -7,7 +7,7 @@
         <v-icon
         small
         class="mr-2"
-        @click="(item)"
+        @click="viewAircraft(item)"
         >
         mdi-information
         </v-icon>
@@ -53,6 +53,9 @@
         .catch(error => [
           console.log(error.reponse.data)
         ])
+      },
+      viewAircraft (aircraft) {
+        this.$router.push('/aircraft/'+aircraft.id)
       }
     }
   }

@@ -45,9 +45,6 @@
             console.log(error.response.data)
         });
       },
-      viewFilms () {
-        this.$router.push('/films')
-      },
 		}
 	}
 </script>

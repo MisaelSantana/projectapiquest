@@ -7,7 +7,7 @@
         <v-icon
         small
         class="mr-2"
-        @click="(item)"
+        @click="viewPerson(item)"
         >
         mdi-information
         </v-icon>
@@ -51,6 +51,10 @@
           console.log(error.reponse.data)
         ]);
       },
+      viewPerson (people) {
+        console.log(people)
+        // this.$router.push('/person/'+people.id)
+      }
     }
   }
 </script>

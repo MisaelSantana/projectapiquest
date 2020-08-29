@@ -23,12 +23,12 @@
   export default {
     data: () => ({
       title:(''),
-      headers: [{ text: 'Titulo', value: 'title' },
-        { text: 'Epsódio', value: 'episode_id' },
-        { text: 'Diretor', value: 'director' },
-        { text: 'Produtor', value: 'producer' },
-        { text: 'Data de lançamento', value: 'release_date' },
-        { text: 'Ações', value: 'actions', sortable: false }],
+      headers: [{ text: 'Title', value: 'title' },
+        { text: 'Episode', value: 'episode_id' },
+        { text: 'Director', value: 'director' },
+        { text: 'Producer', value: 'producer' },
+        { text: 'Release date', value: 'release_date' },
+        { text: 'Actions', value: 'actions', sortable: false }],
       movies: []
     }),
     created () {

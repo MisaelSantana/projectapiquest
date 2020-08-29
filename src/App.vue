@@ -11,7 +11,7 @@
             <v-icon>mdi-film</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Filmes</v-list-item-title>
+            <v-list-item-title>Movies</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item to="/people">
@@ -19,7 +19,7 @@
             <v-icon>mdi-account</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Personagens</v-list-item-title>
+            <v-list-item-title>Peoples</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item to="/aircrafts">
@@ -27,7 +27,7 @@
             <v-icon>mdi-rocket-launch</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Naves</v-list-item-title>
+            <v-list-item-title>Starships</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item to="/planets">
@@ -35,7 +35,7 @@
             <v-icon>mdi-google-assistant</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Planetas</v-list-item-title>
+            <v-list-item-title>Planets</v-list-item-title>
           </v-list-item-content>
         </v-list-item>   
         <v-list-item to="/species">
@@ -43,7 +43,7 @@
             <v-icon>mdi-google-downasaur</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Espécies</v-list-item-title>
+            <v-list-item-title>Species</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item to="/vehicles">
@@ -51,7 +51,7 @@
             <v-icon>mdi-car</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Veículos</v-list-item-title>
+            <v-list-item-title>Vehicles</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -76,7 +76,7 @@
     </v-main>
 
       <v-footer app>
-        <span>&copy; {{ new Date().getFullYear() }} Projeto Quest API Star Wars - Misael Santana</span>
+        <span>&copy; {{ new Date().getFullYear() }} Project Quest API Star Wars - Misael Santana</span>
       </v-footer>
   </v-app>
 </template>
@@ -120,7 +120,10 @@
         this.$router.push('/film/'+movie.episode_id)
       },
       viewFilms () {
-         this.$router.push('/films')
+        this.$router.push('/films')
+      },
+      viewPerson (people) {
+        this.$router.push('/person/'+people.id)
       },
     }
   }

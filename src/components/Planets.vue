@@ -7,7 +7,7 @@
         <v-icon
         small
         class="mr-2"
-        @click="(item)"
+        @click="viewPlanet(item)"
         >
         mdi-information
         </v-icon>
@@ -51,6 +51,9 @@
         .catch(error => [
           console.log(error.reponse.data)
         ])
+      },
+      viewPlanet (planet) {
+        this.$router.push('/planet/'+planet.id)
       }
     }
   }
