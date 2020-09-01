@@ -31,7 +31,7 @@
         axios.get('https://swapi.dev/api/planets/'+this.$route.params.id)
         .then(response => {
           console.log (response.data);
-          this. peoples = response. data;
+          this. planets = response. data;
         })
         .catch(error => {
           console.log(error.response.data)

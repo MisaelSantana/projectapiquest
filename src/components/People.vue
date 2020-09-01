@@ -45,14 +45,15 @@
         axios.get('https://swapi.dev/api/people/')
         .then(response => {
           console.log (response.data)
-          this. people = response. data.results;
+          this.people = response.data.results;
+          // this.viewPerson(people)
         })
         .catch(error => [
           console.log(error.reponse.data)
         ]);
       },
-      viewPerson (people) {
-        console.log(people)
+      viewPerson(people) {
+        console.log('test', people)
         // this.$router.push('/person/'+people.id)
       }
     }

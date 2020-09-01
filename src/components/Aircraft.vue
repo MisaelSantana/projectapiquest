@@ -31,7 +31,7 @@
         axios.get('https://swapi.dev/api/starships/'+this.$route.params.id)
         .then(response => {
           console.log (response.data);
-          this. peoples = response. data;
+          this. aircrafts = response. data;
         })
         .catch(error => {
           console.log(error.response.data)
