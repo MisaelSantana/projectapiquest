@@ -44,17 +44,17 @@
       getPeople () {
         axios.get('https://swapi.dev/api/people/')
         .then(response => {
-          console.log (response.data)
           this.people = response.data.results;
-          // this.viewPerson(people)
         })
         .catch(error => [
           console.log(error.reponse.data)
         ]);
       },
       viewPerson(people) {
-        console.log('test', people)
-        // this.$router.push('/person/'+people.id)
+        // "url": https://swapi.dev/api/people/4/
+        // this.$router.push('/person/'+people.url)
+        people = people.url + /.*(\d)\//;
+        this.$router.push('/person/' + people);
       }
     }
   }

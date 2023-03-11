@@ -13,7 +13,6 @@ import Species from '../Species'
 import Planet from '../Planet'
 import Planets from '../Planets'
 
-
 Vue.use(Router)
 
 const routes = [
@@ -35,4 +34,4 @@ const routes = [
 export const router = new Router({
     mode: 'history',
     routes: routes,
-})
+});
